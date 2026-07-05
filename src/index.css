@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:root {
+  font-family: Inter, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  color: #f8fafc;
+  background: #020617;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow: hidden;
+  background: #020617;
+  color: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*::selection {
+  background: rgba(191, 219, 254, 0.22);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #f8fafc;
+  }
+
+  p {
+    color: rgba(248, 250, 252, 0.84);
+    line-height: 1.75;
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto max-w-content px-6 py-16 md:px-8;
+    scroll-margin-top: 6.5rem;
+  }
+
+  .section-title {
+    @apply text-3xl font-semibold tracking-tight text-slate-800 md:text-4xl;
+  }
+
+  .section-kicker {
+    @apply mb-4 text-sm font-medium uppercase tracking-[0.22em] text-slate-600;
+  }
+
+  .soft-card {
+    @apply rounded-[1.5rem] border border-white/20 shadow-xl transition duration-300 transform-gpu;
+    backface-visibility: hidden;
+    will-change: transform;
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .soft-card-hover {
+    @apply hover:-translate-y-1 hover:shadow-hover;
+  }
+
+  .muted-tag {
+    @apply inline-flex items-center rounded-full border px-3 py-1 text-sm text-slate-700;
+    border-color: rgba(148, 163, 184, 0.3);
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .glass-button {
+    @apply border shadow-soft text-slate-700;
+    border-color: rgba(148, 163, 184, 0.3);
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .subtle-line {
+    @apply h-px w-full;
+    background: linear-gradient(90deg, transparent, rgba(191, 219, 254, 0.5), transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
